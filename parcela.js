@@ -11,4 +11,7 @@ export class parcela {
         this.#amortizacao = amortizacao
         this.#saldo = saldo
     }
+    get_saldo () {
+        return this.#saldo
+    }
 }
