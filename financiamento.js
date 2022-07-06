@@ -24,9 +24,17 @@ class financiamento {
             if (saldo < 0) {
                 saldo = 0
             }
-            this.#parcelas.push(
-                new parcela(numero, valor, juros, amortizacao, saldo)
-            )
+            this.#parcelas.push(new parcela(numero, valor, juros, amortizacao, saldo))
+        }
+    }
+    exibe_parcelas() {
+        const parcelas = this.#parcelas.slice(1); 
+        for (const parcela of parcelas ) {
+            const linha = corpo_tabela.insertRow(-1)
+            for (const dado of parcela.get_dados_formatados()) {
+                const celula = linha.insertCell(-1)
+                celula.textContent = dado
+            }
         }
     }
 }
